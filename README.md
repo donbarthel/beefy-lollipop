@@ -17,7 +17,7 @@ All dependencies are listed in package.json except node, npm and npx. Tested wit
 
 To test:
 
-npm update (just once)
-node server.js (or: nodemon server.js, to run the server)
-npx parcel watch ./src/index.html --public-url . (to build automatically as files change; server.js assumes Parcel's default output of ./dist)
-npx parcel build ./src/index.html --public-url . (with minification for deployment)
+- npm update (just once)
+- node server.js (or: nodemon server.js, to run the server)
+- npx parcel watch ./src/index.html --public-url . (to build automatically as files change; server.js assumes Parcel's default output of ./dist)
+- npx parcel build ./src/index.html --public-url . (with minification for deployment)
