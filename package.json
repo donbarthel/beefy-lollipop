@@ -1,0 +1,26 @@
+{
+  "name": "bfy_lol_stats_v3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "css-loader": "^0.28.9",
+    "express": "^4.16.2",
+    "request-rate-limiter": "^1.0.2",
+    "serve-index": "^1.9.1",
+    "vue": "^2.5.13",
+    "vue-js-modal": "^1.3.9"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.6.1",
+    "node-sass": "^4.7.2",
+    "parcel-bundler": "^1.5.1",
+    "parcel-plugin-vue": "^1.5.0"
+  }
+}

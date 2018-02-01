@@ -1,0 +1,15 @@
+Notes
+
+nodemon server.js
+npx parcel watch ./src/index.html --public-url .
+npx parcel build ./src/index.html --public-url . (with minification)
+scp -r dist package.json server.js rx:~/webapps/beefylollipop
+
+cd ~/webapps/beefylollipop
+export PATH=$PWD/bin/:$PATH
+
+Installed globally:
+
+/home/donbarthel/Desktop/Apps/node-v8.9.4-linux-x64/bin
+node v8.9.4
+npm v8.9.4
