@@ -1,3 +1,5 @@
+// Beefy Lollipop client - uncopyright (u)2018 by Don Barthel don.barthel@gmail.com
+
 <template>
   <div id="app">
     <div class="box">
@@ -35,11 +37,11 @@
           </div>
           <div class="quarter-box">
             <span class="small-text">Teams:</span>
-            <br /><span class="tiny-text" v-bind:class="{ 'red-team': game['playerStats'][0]['color'] === 'red', 'blue-team': game['playerStats'][0]['color'] === 'blue' }" v-bind:title="(game['playerStats'][0]['summonerName']+': '+game['playerStats'][0]['kills']).toString()+' / '+(game['playerStats'][0]['deaths']).toString()+' / '+(game['playerStats'][0]['assists']).toString()+'  '+(Math.round(game['playerStats'][0]['killDeathRatio'] * 100) / 100)+':1 KDA'"><img src="icon.png" width="16" height="16"> {{ game['playerStats'][0]['summonerName'] }}</span> <span class="tiny-text" v-bind:class="{ 'red-team': game['playerStats'][5]['color'] === 'red', 'blue-team': game['playerStats'][5]['color'] === 'blue' }" v-bind:title="(game['playerStats'][5]['summonerName']+': '+game['playerStats'][5]['kills']).toString()+' / '+(game['playerStats'][5]['deaths']).toString()+' / '+(game['playerStats'][5]['assists']).toString()+'  '+(Math.round(game['playerStats'][5]['killDeathRatio'] * 100) / 100)+':1 KDA'"><img src="icon.png" width="16" height="16">{{  game['playerStats'][5]['summonerName']  }}</span>
-            <br /><span class="tiny-text" v-bind:class="{ 'red-team': game['playerStats'][1]['color'] === 'red', 'blue-team': game['playerStats'][1]['color'] === 'blue' }" v-bind:title="(game['playerStats'][1]['summonerName']+': '+game['playerStats'][1]['kills']).toString()+' / '+(game['playerStats'][1]['deaths']).toString()+' / '+(game['playerStats'][1]['assists']).toString()+'  '+(Math.round(game['playerStats'][1]['killDeathRatio'] * 100) / 100)+':1 KDA'"><img src="icon.png" width="16" height="16"> {{ game['playerStats'][1]['summonerName'] }}</span> <span class="tiny-text" v-bind:class="{ 'red-team': game['playerStats'][6]['color'] === 'red', 'blue-team': game['playerStats'][6]['color'] === 'blue' }" v-bind:title="(game['playerStats'][6]['summonerName']+': '+game['playerStats'][6]['kills']).toString()+' / '+(game['playerStats'][6]['deaths']).toString()+' / '+(game['playerStats'][6]['assists']).toString()+'  '+(Math.round(game['playerStats'][6]['killDeathRatio'] * 100) / 100)+':1 KDA'"><img src="icon.png" width="16" height="16">{{  game['playerStats'][6]['summonerName']  }}</span>
-            <br /><span class="tiny-text" v-bind:class="{ 'red-team': game['playerStats'][2]['color'] === 'red', 'blue-team': game['playerStats'][2]['color'] === 'blue' }" v-bind:title="(game['playerStats'][2]['summonerName']+': '+game['playerStats'][2]['kills']).toString()+' / '+(game['playerStats'][2]['deaths']).toString()+' / '+(game['playerStats'][2]['assists']).toString()+'  '+(Math.round(game['playerStats'][2]['killDeathRatio'] * 100) / 100)+':1 KDA'"><img src="icon.png" width="16" height="16"> {{ game['playerStats'][2]['summonerName'] }}</span> <span class="tiny-text" v-bind:class="{ 'red-team': game['playerStats'][7]['color'] === 'red', 'blue-team': game['playerStats'][7]['color'] === 'blue' }" v-bind:title="(game['playerStats'][7]['summonerName']+': '+game['playerStats'][7]['kills']).toString()+' / '+(game['playerStats'][7]['deaths']).toString()+' / '+(game['playerStats'][7]['assists']).toString()+'  '+(Math.round(game['playerStats'][7]['killDeathRatio'] * 100) / 100)+':1 KDA'"><img src="icon.png" width="16" height="16">{{  game['playerStats'][7]['summonerName']  }}</span>
-            <br /><span class="tiny-text" v-bind:class="{ 'red-team': game['playerStats'][3]['color'] === 'red', 'blue-team': game['playerStats'][3]['color'] === 'blue' }" v-bind:title="(game['playerStats'][3]['summonerName']+': '+game['playerStats'][3]['kills']).toString()+' / '+(game['playerStats'][3]['deaths']).toString()+' / '+(game['playerStats'][3]['assists']).toString()+'  '+(Math.round(game['playerStats'][3]['killDeathRatio'] * 100) / 100)+':1 KDA'"><img src="icon.png" width="16" height="16"> {{ game['playerStats'][3]['summonerName'] }}</span> <span class="tiny-text" v-bind:class="{ 'red-team': game['playerStats'][8]['color'] === 'red', 'blue-team': game['playerStats'][8]['color'] === 'blue' }" v-bind:title="(game['playerStats'][8]['summonerName']+': '+game['playerStats'][8]['kills']).toString()+' / '+(game['playerStats'][8]['deaths']).toString()+' / '+(game['playerStats'][8]['assists']).toString()+'  '+(Math.round(game['playerStats'][8]['killDeathRatio'] * 100) / 100)+':1 KDA'"><img src="icon.png" width="16" height="16">{{  game['playerStats'][8]['summonerName']  }}</span>
-            <br /><span class="tiny-text" v-bind:class="{ 'red-team': game['playerStats'][4]['color'] === 'red', 'blue-team': game['playerStats'][4]['color'] === 'blue' }" v-bind:title="(game['playerStats'][4]['summonerName']+': '+game['playerStats'][4]['kills']).toString()+' / '+(game['playerStats'][4]['deaths']).toString()+' / '+(game['playerStats'][4]['assists']).toString()+'  '+(Math.round(game['playerStats'][4]['killDeathRatio'] * 100) / 100)+':1 KDA'"><img src="icon.png" width="16" height="16"> {{ game['playerStats'][4]['summonerName'] }}</span> <span class="tiny-text" v-bind:class="{ 'red-team': game['playerStats'][9]['color'] === 'red', 'blue-team': game['playerStats'][9]['color'] === 'blue' }" v-bind:title="(game['playerStats'][9]['summonerName']+': '+game['playerStats'][9]['kills']).toString()+' / '+(game['playerStats'][9]['deaths']).toString()+' / '+(game['playerStats'][9]['assists']).toString()+'  '+(Math.round(game['playerStats'][9]['killDeathRatio'] * 100) / 100)+':1 KDA'"><img src="icon.png" width="16" height="16">{{  game['playerStats'][9]['summonerName']  }}</span>
+            <br /><span class="tiny-text" v-bind:class="{ 'red-team': game['playerStats'][0]['color'] === 'red', 'blue-team': game['playerStats'][0]['color'] === 'blue' }" v-bind:title="(game['playerStats'][0]['summonerName']+': '+game['playerStats'][0]['kills']).toString()+' / '+(game['playerStats'][0]['deaths']).toString()+' / '+(game['playerStats'][0]['assists']).toString()+'  '+(Math.round(game['playerStats'][0]['killDeathRatio'] * 100) / 100)+':1 KDA'"><img src="icon.png" width="16" height="16"> <a v-bind:href="'/?summoner='+game['playerStats'][0]['summonerName']">{{ game['playerStats'][0]['summonerName'] }}</a></span> <span class="tiny-text" v-bind:class="{ 'red-team': game['playerStats'][5]['color'] === 'red', 'blue-team': game['playerStats'][5]['color'] === 'blue' }" v-bind:title="(game['playerStats'][5]['summonerName']+': '+game['playerStats'][5]['kills']).toString()+' / '+(game['playerStats'][5]['deaths']).toString()+' / '+(game['playerStats'][5]['assists']).toString()+'  '+(Math.round(game['playerStats'][5]['killDeathRatio'] * 100) / 100)+':1 KDA'"><img src="icon.png" width="16" height="16"><a v-bind:href="'/?summoner='+game['playerStats'][5]['summonerName']">{{ game['playerStats'][5]['summonerName']  }}</a></span>
+            <br /><span class="tiny-text" v-bind:class="{ 'red-team': game['playerStats'][1]['color'] === 'red', 'blue-team': game['playerStats'][1]['color'] === 'blue' }" v-bind:title="(game['playerStats'][1]['summonerName']+': '+game['playerStats'][1]['kills']).toString()+' / '+(game['playerStats'][1]['deaths']).toString()+' / '+(game['playerStats'][1]['assists']).toString()+'  '+(Math.round(game['playerStats'][1]['killDeathRatio'] * 100) / 100)+':1 KDA'"><img src="icon.png" width="16" height="16"> <a v-bind:href="'/?summoner='+game['playerStats'][1]['summonerName']">{{ game['playerStats'][1]['summonerName'] }}</a></span> <span class="tiny-text" v-bind:class="{ 'red-team': game['playerStats'][6]['color'] === 'red', 'blue-team': game['playerStats'][6]['color'] === 'blue' }" v-bind:title="(game['playerStats'][6]['summonerName']+': '+game['playerStats'][6]['kills']).toString()+' / '+(game['playerStats'][6]['deaths']).toString()+' / '+(game['playerStats'][6]['assists']).toString()+'  '+(Math.round(game['playerStats'][6]['killDeathRatio'] * 100) / 100)+':1 KDA'"><img src="icon.png" width="16" height="16"><a v-bind:href="'/?summoner='+game['playerStats'][6]['summonerName']">{{ game['playerStats'][6]['summonerName']  }}</a></span>
+            <br /><span class="tiny-text" v-bind:class="{ 'red-team': game['playerStats'][2]['color'] === 'red', 'blue-team': game['playerStats'][2]['color'] === 'blue' }" v-bind:title="(game['playerStats'][2]['summonerName']+': '+game['playerStats'][2]['kills']).toString()+' / '+(game['playerStats'][2]['deaths']).toString()+' / '+(game['playerStats'][2]['assists']).toString()+'  '+(Math.round(game['playerStats'][2]['killDeathRatio'] * 100) / 100)+':1 KDA'"><img src="icon.png" width="16" height="16"> <a v-bind:href="'/?summoner='+game['playerStats'][2]['summonerName']">{{ game['playerStats'][2]['summonerName'] }}</a></span> <span class="tiny-text" v-bind:class="{ 'red-team': game['playerStats'][7]['color'] === 'red', 'blue-team': game['playerStats'][7]['color'] === 'blue' }" v-bind:title="(game['playerStats'][7]['summonerName']+': '+game['playerStats'][7]['kills']).toString()+' / '+(game['playerStats'][7]['deaths']).toString()+' / '+(game['playerStats'][7]['assists']).toString()+'  '+(Math.round(game['playerStats'][7]['killDeathRatio'] * 100) / 100)+':1 KDA'"><img src="icon.png" width="16" height="16"><a v-bind:href="'/?summoner='+game['playerStats'][7]['summonerName']">{{ game['playerStats'][7]['summonerName']  }}</a></span>
+            <br /><span class="tiny-text" v-bind:class="{ 'red-team': game['playerStats'][3]['color'] === 'red', 'blue-team': game['playerStats'][3]['color'] === 'blue' }" v-bind:title="(game['playerStats'][3]['summonerName']+': '+game['playerStats'][3]['kills']).toString()+' / '+(game['playerStats'][3]['deaths']).toString()+' / '+(game['playerStats'][3]['assists']).toString()+'  '+(Math.round(game['playerStats'][3]['killDeathRatio'] * 100) / 100)+':1 KDA'"><img src="icon.png" width="16" height="16"> <a v-bind:href="'/?summoner='+game['playerStats'][3]['summonerName']">{{ game['playerStats'][3]['summonerName'] }}</a></span> <span class="tiny-text" v-bind:class="{ 'red-team': game['playerStats'][8]['color'] === 'red', 'blue-team': game['playerStats'][8]['color'] === 'blue' }" v-bind:title="(game['playerStats'][8]['summonerName']+': '+game['playerStats'][8]['kills']).toString()+' / '+(game['playerStats'][8]['deaths']).toString()+' / '+(game['playerStats'][8]['assists']).toString()+'  '+(Math.round(game['playerStats'][8]['killDeathRatio'] * 100) / 100)+':1 KDA'"><img src="icon.png" width="16" height="16"><a v-bind:href="'/?summoner='+game['playerStats'][8]['summonerName']">{{ game['playerStats'][8]['summonerName']  }}</a></span>
+            <br /><span class="tiny-text" v-bind:class="{ 'red-team': game['playerStats'][4]['color'] === 'red', 'blue-team': game['playerStats'][4]['color'] === 'blue' }" v-bind:title="(game['playerStats'][4]['summonerName']+': '+game['playerStats'][4]['kills']).toString()+' / '+(game['playerStats'][4]['deaths']).toString()+' / '+(game['playerStats'][4]['assists']).toString()+'  '+(Math.round(game['playerStats'][4]['killDeathRatio'] * 100) / 100)+':1 KDA'"><img src="icon.png" width="16" height="16"> <a v-bind:href="'/?summoner='+game['playerStats'][4]['summonerName']">{{ game['playerStats'][4]['summonerName'] }}</a></span> <span class="tiny-text" v-bind:class="{ 'red-team': game['playerStats'][9]['color'] === 'red', 'blue-team': game['playerStats'][9]['color'] === 'blue' }" v-bind:title="(game['playerStats'][9]['summonerName']+': '+game['playerStats'][9]['kills']).toString()+' / '+(game['playerStats'][9]['deaths']).toString()+' / '+(game['playerStats'][9]['assists']).toString()+'  '+(Math.round(game['playerStats'][9]['killDeathRatio'] * 100) / 100)+':1 KDA'"><img src="icon.png" width="16" height="16"><a v-bind:href="'/?summoner='+game['playerStats'][9]['summonerName']">{{ game['playerStats'][9]['summonerName']  }}</a></span>
           </div>
         </div>
       </div>
@@ -64,12 +66,20 @@
   import Vue from 'vue';
   import VModal from 'vue-js-modal';
   Vue.use(VModal, { componentName: 'divmodal' })
+  let AxiosCouldBeNotFound = Axios.create({
+    // Override what is considered a success - changes what results get thrown
+    // We expect that a summoner-by-name and the summoner-games-played could be 404 Not Found
+    validateStatus: function (status) {
+      return status >= 200 && status < 500; // In addition to 200 level status codes, allow 300 and 400 level status codes to be considered successes (so we can handle them in context with a good error message)
+    },
+  });
 
   export default {
     name: 'app',
     data() {
       return {
-        summonerName: 'BFY Meowington',
+        MAX_PARTICIPANTS: 10,
+        summonerName: '',
         champions: {},
         items: {},
         spells: {},
@@ -94,10 +104,17 @@
     },
     methods: {
       lookup() {
+        // Future upgrade: detect when a new request is made before the old request is finished (i.e. by clicking twice or when the old request is slow)
+        // See cancellable Axios requests at: https://github.com/axios/axios#cancellation
+
+        // Don't bother looking up blank names
+        if (this.summonerName.trim() === '')
+          return
+
         this.errorMessage = '';
         this.progressMessages = [];
         this.games = [];
-        this.progressMessages.splice(0, 0, 'Looking up champions...');
+        this.progressMessages.splice(0, 0, 'Looking up LOL static data...');
         this.$modal.show('progress-window');
 
         history.replaceState(null, null, location.origin+'?summoner='+this.summonerName);
@@ -111,7 +128,14 @@
                      Axios.get(location.origin+'/lookupSpells')
         ])
         .then(function(response) {
-          let champions = JSON.parse(response[0].data)['data'];
+          for (let i=0; i<3; i++) {
+            if (typeof response[i].data !== 'object') {
+              let responseObj = JSON.parse(response[0].data);
+              let errorMsg = 'Server returned ' + (('status' in responseObj) ? responseObj['status']['status_code']+' '+responseObj['status']['message'] : 'unknown');
+              return Promise.reject(errorMsg);
+            }
+          }
+          let champions = response[0].data['data'];
 
           // Create champions lookup by champion ID
           for (let championName in champions){
@@ -120,31 +144,45 @@
             self.champions[championId] = {'name': championName, 'title': championTitle};
           }
 
-          self.items = JSON.parse(response[1].data)['data'];
+          self.items = response[1].data['data'];
           self.items['0'] = {'name': '-', 'plaintext': '(n/a)'}; // Add in the name of the null item
-          self.spells = JSON.parse(response[2].data)['data'];
+          self.spells = response[2].data['data'];
+          self.spells['0'] = {'name': '-', 'description': '(n/a)'}; // Add in the name of the null spell
 
           // Lookup summoner
           self.progressMessages.splice(0, 1, 'Looking up summoner...');
-          return Axios.get(location.origin+'/lookupSummoner?summonerName='+self.summonerName)
+          return AxiosCouldBeNotFound.get(location.origin+'/lookupSummoner?summonerName='+self.summonerName)
         })
 
         // Found summoner
         .then(function(response) {
+          if ((typeof response === 'object') && ('status' in response) && (response.status !== 200)) {
+            if (response.status === 404)
+              return Promise.reject('Summoner '+self.summonerName+' doesn\'t exist');
+            else
+              return Promise.reject('Server returned '+responseObj.status+' '+responseObj.statusText);
+          }
+
           self.progressMessages.splice(0, 1, self.progressMessages[0]+'found.', 'Looking up games list...');
 
-          let responseObj = JSON.parse(response.data);
-          let accountId = responseObj['accountId'];
-
-
+          let accountId = response.data['accountId'];
+          if (accountId === undefined)
+            return Promise.reject('summoner "'+self.summonerName+'" does not exist.');
+          self.summonerName = response.data['name']; // The name in the data might be slightly different than the name input by the user (upper vs lower case and spaces vs no spaces)
           // Lookup games list
-          return Axios.get(location.origin+'/lookupGames?accountId='+accountId);
+          return AxiosCouldBeNotFound.get(location.origin+'/lookupGames?accountId='+accountId);
         })
 
         // Found games list
         .then(function(response) {
-          let responseObj = JSON.parse(response.data);
-          let games = responseObj['matches'];
+          if ((typeof response === 'object') && ('status' in response) && (response.status !== 200)) {
+            if (response.status === 404)
+              return Promise.reject('Summoner '+self.summonerName+' hasn\'t played any games');
+            else
+              return Promise.reject('Server returned '+responseObj.status+' '+responseObj.statusText);
+          }
+
+          let games = response.data['matches'];
           console.assert(games instanceof Array, 'Expected an array of games but got a '+typeof games);
           let gamesLen = games.length;
           self.progressMessages.splice(1, 1, self.progressMessages[1]+'found.', 'Looking up '+gamesLen+' individual games...');
@@ -170,24 +208,35 @@
         // Found individual games
         .then(function(response) {
           self.progressMessages.splice(3, 0, 'Calculating stats...');
+
           let responseLen = response.length;
           let stats = [];
           for (let i=0; i<responseLen; i++) {
-            let statsString = response[i].data;
-            stats.push(JSON.parse(statsString));
+            if (typeof response[i].data !== 'object') {
+              let responseObj = JSON.parse(response[i].data);
+              let errorMsg = 'Server returned ' + (('status' in responseObj) ? responseObj['status']['status_code']+' '+responseObj['status']['message'] : 'unknown');
+              return Promise.reject(errorMsg);
+            }
+
+            stats.push(response[i].data);
           }
-          self.displayStats(self.summonerName, stats);
+          self.extractStats(self.summonerName, stats);
 
           self.$modal.hide('progress-window');
         })
         .catch(function (error) {
           self.$modal.hide('progress-window');
-          self.errorMessage = error['message'];
+          if (error.response)
+            self.errorMessage = error.response.data;
+          else if (error.message)
+            self.errorMessage = error.message;
+          else
+            self.errorMessage = error;
           self.$modal.show('error-window');
         });   
       },
 
-      displayStats(summonerName, stats) {
+      extractStats(summonerName, stats) {
         let gameCount = stats.length;
         for (let gameNo=0; gameNo<gameCount; gameNo++) {
           let teamCount = stats[gameNo]['teams'].length;
@@ -202,8 +251,10 @@
           let ourParticipantId = -1;
           let ourParticipantNo = -1;
           let participantCount = stats[gameNo]['participantIdentities'].length;
+// Not an issue anymore, see call to blankStats() below
+//          console.assert(participantCount === 10, 'Number of game participants is '+participantCount+' not 10');
           for (let participantNo=0; participantNo<participantCount; participantNo++) {
-            if (stats[gameNo]['participantIdentities'][participantNo]['player']['summonerName'].toUpperCase() === summonerName.toUpperCase()) {
+            if (stats[gameNo]['participantIdentities'][participantNo]['player']['summonerName'] === summonerName) {
               ourParticipantId = stats[gameNo]['participantIdentities'][participantNo]['participantId'];
               ourParticipantNo = participantNo;
               break;
@@ -230,6 +281,11 @@
           for (let participantNo=0; participantNo<participantCount; participantNo++) {
             consolidatedGameStats.playerStats.push(this.playerStats(participantNo, stats[gameNo], gameNo, minutes));
           }
+          // Fill remaining slots for missing players
+          for (let participantNo=participantCount; participantNo<this.MAX_PARTICIPANTS; participantNo++) {
+            consolidatedGameStats.playerStats.push(this.blankStats());
+          }
+
           consolidatedGameStats['ourPlayerIndex'] = ourParticipantNo;
           consolidatedGameStats['ourColor'] = (ourTeamId ===  teamIds[0]) ? 'red' : 'blue';
           consolidatedGameStats['ourWin'] = stats[gameNo]['teams'][ourTeamNo]['win'].toUpperCase() === 'WIN';
@@ -245,9 +301,8 @@
       },
 
       playerStats(participantNo, gameStats, gameNo, minutes) {
-
-        // participantNo indexes gameStats['participantIdentities']
-        // participantIndexes indexes gameStats['participants']
+        // local var participantNo indexes gameStats['participantIdentities']
+        // local var participantIndex indexes gameStats['participants']
 
         // Determine the team Ids
         let teamCount = gameStats['teams'].length;
@@ -305,6 +360,32 @@
 
       },
 
+      blankStats() {
+        return {
+          'color': 'none',
+          'win': 'none',
+          'summonerName': '',
+          'spell1Id': '0',
+          'spell2Id': '0',
+          'championId': 'none',
+          'championName': '',
+          'kills': 0,
+          'assists': 0,
+          'deaths': 0,
+          'killDeathRatio': 0,
+          'item0Id': '0',
+          'item1Id': '0',
+          'item2Id': '0',
+          'item3Id': '0',
+          'item4Id': '0',
+          'item5Id': '0',
+          'item6Id': '0',
+          'level': 0,
+          'csScore': 0,
+          'csScorePerMin': 0
+        };
+      },
+
       durationString(seconds) {
         let hours = Math.floor(seconds / (60 * 60));
         let mins = Math.floor(seconds / 60) - (hours * 60 * 60);
@@ -318,6 +399,15 @@
 </script>
 
 <style lang="css">
+
+  a:link, a:visited {
+    color: #000000;
+  }
+
+  a:hover, a:active {
+    color: #555555;
+  }
+
   #app {
     background-color: #808080;
     font-size: 160%;
