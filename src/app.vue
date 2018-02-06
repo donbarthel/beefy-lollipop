@@ -7,7 +7,7 @@
       <button @click="lookup">Go</button>
     </div>
     <div v-for="game in games">
-      <div class="box small-text" v-bind:class="{ 'win-team': game['playerStats'][game['ourPlayerIndex']]['win'], 'loss-team': !game['playerStats'][game['ourPlayerIndex']]['win'] }">
+      <div class="box" v-bind:class="{ 'win-team': game['playerStats'][game['ourPlayerIndex']]['win'], 'loss-team': !game['playerStats'][game['ourPlayerIndex']]['win'] }">
         <div>
           <span class="serif-text">{{ game['playerStats'][game['ourPlayerIndex']]['summonerName'] }}</span>
           controls
@@ -15,33 +15,37 @@
           to a
           {{ game['playerStats'][game['ourPlayerIndex']]['win'] ? 'Glorious Victory!' : 'loss.' }}
         </div>
-        <div class="small-text" style="overflow: hidden">
-          <div class="quarter-box">
-            Duration: {{ game['gameDurationString'] }}
-            <br /><br />{{ game['playerStats'][game['ourPlayerIndex']]['kills'] }} / {{ game['playerStats'][game['ourPlayerIndex']]['deaths'] }} / {{ game['playerStats'][game['ourPlayerIndex']]['assists'] }}
-            <br />{{ Math.round(game['playerStats'][game['ourPlayerIndex']]['killDeathRatio'] * 100) / 100 }}:1 KDA
+        <div style="overflow: hidden">
+          <div class="half-box">
+            <div class="quarter-box">
+              Duration: {{ game['gameDurationString'] }}
+              <br /><br />{{ game['playerStats'][game['ourPlayerIndex']]['kills'] }} / {{ game['playerStats'][game['ourPlayerIndex']]['deaths'] }} / {{ game['playerStats'][game['ourPlayerIndex']]['assists'] }}
+              <br />{{ Math.round(game['playerStats'][game['ourPlayerIndex']]['killDeathRatio'] * 100) / 100 }}:1 KDA
+            </div>
+            <div class="quarter-box">
+              Level  {{ game['playerStats'][game['ourPlayerIndex']]['kills'] }}
+              <br /><br />CS: {{ game['playerStats'][game['ourPlayerIndex']]['csScore'] }}
+              <br />{{ Math.round(game['playerStats'][game['ourPlayerIndex']]['csScorePerMin'] * 100) / 100 }}/min
+            </div>
           </div>
-          <div class="quarter-box">
-            Level  {{ game['playerStats'][game['ourPlayerIndex']]['kills'] }}
-            <br /><br />CS: {{ game['playerStats'][game['ourPlayerIndex']]['csScore'] }}
-            <br />{{ Math.round(game['playerStats'][game['ourPlayerIndex']]['csScorePerMin'] * 100) / 100 }}/min
-          </div>
-          <div class="quarter-box">
-            <span class="small-text">Items purchased:</span>
-            <br /><img src="icon.png" width="16" height="16"> <span class="tiny-text" v-bind:title="items[game['playerStats'][game['ourPlayerIndex']]['item0Id']] ? items[game['playerStats'][game['ourPlayerIndex']]['item0Id']]['name']+' - '+items[game['playerStats'][game['ourPlayerIndex']]['item0Id']]['plaintext'] : '(n/a)'">{{ items[game['playerStats'][game['ourPlayerIndex']]['item0Id']] ? items[game['playerStats'][game['ourPlayerIndex']]['item0Id']]['name'] : '(n/a)' }}</span> <img src="icon.png" width="16" height="16"> <span class="tiny-text" v-bind:title="items[game['playerStats'][game['ourPlayerIndex']]['item4Id']] ? items[game['playerStats'][game['ourPlayerIndex']]['item4Id']]['name']+' - '+items[game['playerStats'][game['ourPlayerIndex']]['item4Id']]['plaintext'] : '(n/a)'">{{ items[game['playerStats'][game['ourPlayerIndex']]['item4Id']] ? items[game['playerStats'][game['ourPlayerIndex']]['item4Id']]['name'] : '(n/a)' }}</span>
-            <br /><img src="icon.png" width="16" height="16"> <span class="tiny-text" v-bind:title="items[game['playerStats'][game['ourPlayerIndex']]['item1Id']] ? items[game['playerStats'][game['ourPlayerIndex']]['item1Id']]['name']+' - '+items[game['playerStats'][game['ourPlayerIndex']]['item1Id']]['plaintext'] : '(n/a)'">{{ items[game['playerStats'][game['ourPlayerIndex']]['item1Id']] ? items[game['playerStats'][game['ourPlayerIndex']]['item1Id']]['name'] : '(n/a)' }}</span> <img src="icon.png" width="16" height="16"> <span class="tiny-text" v-bind:title="items[game['playerStats'][game['ourPlayerIndex']]['item5Id']] ? items[game['playerStats'][game['ourPlayerIndex']]['item5Id']]['name']+' - '+items[game['playerStats'][game['ourPlayerIndex']]['item5Id']]['plaintext'] : '(n/a)'">{{ items[game['playerStats'][game['ourPlayerIndex']]['item5Id']] ? items[game['playerStats'][game['ourPlayerIndex']]['item5Id']]['name'] : '(n/a)' }}</span>
-            <br /><img src="icon.png" width="16" height="16"> <span class="tiny-text" v-bind:title="items[game['playerStats'][game['ourPlayerIndex']]['item2Id']] ? items[game['playerStats'][game['ourPlayerIndex']]['item2Id']]['name']+' - '+items[game['playerStats'][game['ourPlayerIndex']]['item2Id']]['plaintext'] : '(n/a)'">{{ items[game['playerStats'][game['ourPlayerIndex']]['item2Id']] ? items[game['playerStats'][game['ourPlayerIndex']]['item2Id']]['name'] : '(n/a)' }}</span> <img src="icon.png" width="16" height="16"> <span class="tiny-text" v-bind:title="items[game['playerStats'][game['ourPlayerIndex']]['item6Id']] ? items[game['playerStats'][game['ourPlayerIndex']]['item6Id']]['name']+' - '+items[game['playerStats'][game['ourPlayerIndex']]['item6Id']]['plaintext'] : '(n/a)'">{{ items[game['playerStats'][game['ourPlayerIndex']]['item6Id']] ? items[game['playerStats'][game['ourPlayerIndex']]['item6Id']]['name'] : '(n/a)' }}</span>
-            <br /><img src="icon.png" width="16" height="16"> <span class="tiny-text" v-bind:title="items[game['playerStats'][game['ourPlayerIndex']]['item3Id']] ? items[game['playerStats'][game['ourPlayerIndex']]['item3Id']]['name']+' - '+items[game['playerStats'][game['ourPlayerIndex']]['item3Id']]['plaintext'] : '(n/a)'">{{ items[game['playerStats'][game['ourPlayerIndex']]['item3Id']] ? items[game['playerStats'][game['ourPlayerIndex']]['item3Id']]['name'] : '(n/a)' }}</span>
-            <br /><span class="small-text">Spells:</span>
-            <br /><img src="icon.png" width="16" height="16"> <span class="tiny-text" v-bind:title="spells[game['playerStats'][game['ourPlayerIndex']]['spell1Id']]['name']+' - '+spells[game['playerStats'][game['ourPlayerIndex']]['spell1Id']]['description']">{{ spells[game['playerStats'][game['ourPlayerIndex']]['spell1Id']]['name'] }}</span> <img src="icon.png" width="16" height="16"> <span class="tiny-text" v-bind:title="spells[game['playerStats'][game['ourPlayerIndex']]['spell2Id']]['name']+' - '+spells[game['playerStats'][game['ourPlayerIndex']]['spell2Id']]['description']">{{ spells[game['playerStats'][game['ourPlayerIndex']]['spell2Id']]['name'] }}</span>
-          </div>
-          <div class="quarter-box">
-            <span class="small-text">Teams:</span>
-            <br /><span class="tiny-text" v-bind:class="{ 'red-team': game['playerStats'][0]['color'] === 'red', 'blue-team': game['playerStats'][0]['color'] === 'blue' }" v-bind:title="(game['playerStats'][0]['summonerName']+': '+game['playerStats'][0]['kills']).toString()+' / '+(game['playerStats'][0]['deaths']).toString()+' / '+(game['playerStats'][0]['assists']).toString()+'  '+(Math.round(game['playerStats'][0]['killDeathRatio'] * 100) / 100)+':1 KDA'"><img src="icon.png" width="16" height="16"> <a v-bind:href="'/?summoner='+game['playerStats'][0]['summonerName']">{{ game['playerStats'][0]['summonerName'] }}</a></span> <span class="tiny-text" v-bind:class="{ 'red-team': game['playerStats'][5]['color'] === 'red', 'blue-team': game['playerStats'][5]['color'] === 'blue' }" v-bind:title="(game['playerStats'][5]['summonerName']+': '+game['playerStats'][5]['kills']).toString()+' / '+(game['playerStats'][5]['deaths']).toString()+' / '+(game['playerStats'][5]['assists']).toString()+'  '+(Math.round(game['playerStats'][5]['killDeathRatio'] * 100) / 100)+':1 KDA'"><img src="icon.png" width="16" height="16"><a v-bind:href="'/?summoner='+game['playerStats'][5]['summonerName']">{{ game['playerStats'][5]['summonerName']  }}</a></span>
-            <br /><span class="tiny-text" v-bind:class="{ 'red-team': game['playerStats'][1]['color'] === 'red', 'blue-team': game['playerStats'][1]['color'] === 'blue' }" v-bind:title="(game['playerStats'][1]['summonerName']+': '+game['playerStats'][1]['kills']).toString()+' / '+(game['playerStats'][1]['deaths']).toString()+' / '+(game['playerStats'][1]['assists']).toString()+'  '+(Math.round(game['playerStats'][1]['killDeathRatio'] * 100) / 100)+':1 KDA'"><img src="icon.png" width="16" height="16"> <a v-bind:href="'/?summoner='+game['playerStats'][1]['summonerName']">{{ game['playerStats'][1]['summonerName'] }}</a></span> <span class="tiny-text" v-bind:class="{ 'red-team': game['playerStats'][6]['color'] === 'red', 'blue-team': game['playerStats'][6]['color'] === 'blue' }" v-bind:title="(game['playerStats'][6]['summonerName']+': '+game['playerStats'][6]['kills']).toString()+' / '+(game['playerStats'][6]['deaths']).toString()+' / '+(game['playerStats'][6]['assists']).toString()+'  '+(Math.round(game['playerStats'][6]['killDeathRatio'] * 100) / 100)+':1 KDA'"><img src="icon.png" width="16" height="16"><a v-bind:href="'/?summoner='+game['playerStats'][6]['summonerName']">{{ game['playerStats'][6]['summonerName']  }}</a></span>
-            <br /><span class="tiny-text" v-bind:class="{ 'red-team': game['playerStats'][2]['color'] === 'red', 'blue-team': game['playerStats'][2]['color'] === 'blue' }" v-bind:title="(game['playerStats'][2]['summonerName']+': '+game['playerStats'][2]['kills']).toString()+' / '+(game['playerStats'][2]['deaths']).toString()+' / '+(game['playerStats'][2]['assists']).toString()+'  '+(Math.round(game['playerStats'][2]['killDeathRatio'] * 100) / 100)+':1 KDA'"><img src="icon.png" width="16" height="16"> <a v-bind:href="'/?summoner='+game['playerStats'][2]['summonerName']">{{ game['playerStats'][2]['summonerName'] }}</a></span> <span class="tiny-text" v-bind:class="{ 'red-team': game['playerStats'][7]['color'] === 'red', 'blue-team': game['playerStats'][7]['color'] === 'blue' }" v-bind:title="(game['playerStats'][7]['summonerName']+': '+game['playerStats'][7]['kills']).toString()+' / '+(game['playerStats'][7]['deaths']).toString()+' / '+(game['playerStats'][7]['assists']).toString()+'  '+(Math.round(game['playerStats'][7]['killDeathRatio'] * 100) / 100)+':1 KDA'"><img src="icon.png" width="16" height="16"><a v-bind:href="'/?summoner='+game['playerStats'][7]['summonerName']">{{ game['playerStats'][7]['summonerName']  }}</a></span>
-            <br /><span class="tiny-text" v-bind:class="{ 'red-team': game['playerStats'][3]['color'] === 'red', 'blue-team': game['playerStats'][3]['color'] === 'blue' }" v-bind:title="(game['playerStats'][3]['summonerName']+': '+game['playerStats'][3]['kills']).toString()+' / '+(game['playerStats'][3]['deaths']).toString()+' / '+(game['playerStats'][3]['assists']).toString()+'  '+(Math.round(game['playerStats'][3]['killDeathRatio'] * 100) / 100)+':1 KDA'"><img src="icon.png" width="16" height="16"> <a v-bind:href="'/?summoner='+game['playerStats'][3]['summonerName']">{{ game['playerStats'][3]['summonerName'] }}</a></span> <span class="tiny-text" v-bind:class="{ 'red-team': game['playerStats'][8]['color'] === 'red', 'blue-team': game['playerStats'][8]['color'] === 'blue' }" v-bind:title="(game['playerStats'][8]['summonerName']+': '+game['playerStats'][8]['kills']).toString()+' / '+(game['playerStats'][8]['deaths']).toString()+' / '+(game['playerStats'][8]['assists']).toString()+'  '+(Math.round(game['playerStats'][8]['killDeathRatio'] * 100) / 100)+':1 KDA'"><img src="icon.png" width="16" height="16"><a v-bind:href="'/?summoner='+game['playerStats'][8]['summonerName']">{{ game['playerStats'][8]['summonerName']  }}</a></span>
-            <br /><span class="tiny-text" v-bind:class="{ 'red-team': game['playerStats'][4]['color'] === 'red', 'blue-team': game['playerStats'][4]['color'] === 'blue' }" v-bind:title="(game['playerStats'][4]['summonerName']+': '+game['playerStats'][4]['kills']).toString()+' / '+(game['playerStats'][4]['deaths']).toString()+' / '+(game['playerStats'][4]['assists']).toString()+'  '+(Math.round(game['playerStats'][4]['killDeathRatio'] * 100) / 100)+':1 KDA'"><img src="icon.png" width="16" height="16"> <a v-bind:href="'/?summoner='+game['playerStats'][4]['summonerName']">{{ game['playerStats'][4]['summonerName'] }}</a></span> <span class="tiny-text" v-bind:class="{ 'red-team': game['playerStats'][9]['color'] === 'red', 'blue-team': game['playerStats'][9]['color'] === 'blue' }" v-bind:title="(game['playerStats'][9]['summonerName']+': '+game['playerStats'][9]['kills']).toString()+' / '+(game['playerStats'][9]['deaths']).toString()+' / '+(game['playerStats'][9]['assists']).toString()+'  '+(Math.round(game['playerStats'][9]['killDeathRatio'] * 100) / 100)+':1 KDA'"><img src="icon.png" width="16" height="16"><a v-bind:href="'/?summoner='+game['playerStats'][9]['summonerName']">{{ game['playerStats'][9]['summonerName']  }}</a></span>
+          <div class="half-box">
+            <div class="quarter-box">
+              <span>Items purchased:</span>
+              <br /><span class="tiny-text" v-bind:title="items[game['playerStats'][game['ourPlayerIndex']]['item0Id']] ? items[game['playerStats'][game['ourPlayerIndex']]['item0Id']]['name']+' - '+items[game['playerStats'][game['ourPlayerIndex']]['item0Id']]['plaintext'] : '(n/a)'"><img src="icon.png" width="16" height="16"> {{ items[game['playerStats'][game['ourPlayerIndex']]['item0Id']] ? items[game['playerStats'][game['ourPlayerIndex']]['item0Id']]['name'] : '(n/a)' }}</span> <span class="tiny-text" v-bind:title="items[game['playerStats'][game['ourPlayerIndex']]['item4Id']] ? items[game['playerStats'][game['ourPlayerIndex']]['item4Id']]['name']+' - '+items[game['playerStats'][game['ourPlayerIndex']]['item4Id']]['plaintext'] : '(n/a)'"><img src="icon.png" width="16" height="16"> {{ items[game['playerStats'][game['ourPlayerIndex']]['item4Id']] ? items[game['playerStats'][game['ourPlayerIndex']]['item4Id']]['name'] : '(n/a)' }}</span>
+              <br /><span class="tiny-text" v-bind:title="items[game['playerStats'][game['ourPlayerIndex']]['item1Id']] ? items[game['playerStats'][game['ourPlayerIndex']]['item1Id']]['name']+' - '+items[game['playerStats'][game['ourPlayerIndex']]['item1Id']]['plaintext'] : '(n/a)'"><img src="icon.png" width="16" height="16"> {{ items[game['playerStats'][game['ourPlayerIndex']]['item1Id']] ? items[game['playerStats'][game['ourPlayerIndex']]['item1Id']]['name'] : '(n/a)' }}</span> <span class="tiny-text" v-bind:title="items[game['playerStats'][game['ourPlayerIndex']]['item5Id']] ? items[game['playerStats'][game['ourPlayerIndex']]['item5Id']]['name']+' - '+items[game['playerStats'][game['ourPlayerIndex']]['item5Id']]['plaintext'] : '(n/a)'"><img src="icon.png" width="16" height="16"> {{ items[game['playerStats'][game['ourPlayerIndex']]['item5Id']] ? items[game['playerStats'][game['ourPlayerIndex']]['item5Id']]['name'] : '(n/a)' }}</span>
+              <br /><span class="tiny-text" v-bind:title="items[game['playerStats'][game['ourPlayerIndex']]['item2Id']] ? items[game['playerStats'][game['ourPlayerIndex']]['item2Id']]['name']+' - '+items[game['playerStats'][game['ourPlayerIndex']]['item2Id']]['plaintext'] : '(n/a)'"><img src="icon.png" width="16" height="16"> {{ items[game['playerStats'][game['ourPlayerIndex']]['item2Id']] ? items[game['playerStats'][game['ourPlayerIndex']]['item2Id']]['name'] : '(n/a)' }}</span> <span class="tiny-text" v-bind:title="items[game['playerStats'][game['ourPlayerIndex']]['item6Id']] ? items[game['playerStats'][game['ourPlayerIndex']]['item6Id']]['name']+' - '+items[game['playerStats'][game['ourPlayerIndex']]['item6Id']]['plaintext'] : '(n/a)'"><img src="icon.png" width="16" height="16"> {{ items[game['playerStats'][game['ourPlayerIndex']]['item6Id']] ? items[game['playerStats'][game['ourPlayerIndex']]['item6Id']]['name'] : '(n/a)' }}</span>
+              <br /><span class="tiny-text" v-bind:title="items[game['playerStats'][game['ourPlayerIndex']]['item3Id']] ? items[game['playerStats'][game['ourPlayerIndex']]['item3Id']]['name']+' - '+items[game['playerStats'][game['ourPlayerIndex']]['item3Id']]['plaintext'] : '(n/a)'"><img src="icon.png" width="16" height="16"> {{ items[game['playerStats'][game['ourPlayerIndex']]['item3Id']] ? items[game['playerStats'][game['ourPlayerIndex']]['item3Id']]['name'] : '(n/a)' }}</span>
+              <br /><span>Spells:</span>
+              <br /><span class="tiny-text" v-bind:title="spells[game['playerStats'][game['ourPlayerIndex']]['spell1Id']]['name']+' - '+spells[game['playerStats'][game['ourPlayerIndex']]['spell1Id']]['description']"><img src="icon.png" width="16" height="16"> {{ spells[game['playerStats'][game['ourPlayerIndex']]['spell1Id']]['name'] }}</span> <span class="tiny-text" v-bind:title="spells[game['playerStats'][game['ourPlayerIndex']]['spell2Id']]['name']+' - '+spells[game['playerStats'][game['ourPlayerIndex']]['spell2Id']]['description']"><img src="icon.png" width="16" height="16"> {{ spells[game['playerStats'][game['ourPlayerIndex']]['spell2Id']]['name'] }}</span>
+            </div>
+            <div class="quarter-box">
+              <span>Teams:</span>
+              <br /><span class="tiny-text" v-bind:class="{ 'red-team': game['playerStats'][0]['color'] === 'red', 'blue-team': game['playerStats'][0]['color'] === 'blue' }" v-bind:title="(game['playerStats'][0]['summonerName']+': '+game['playerStats'][0]['kills']).toString()+' / '+(game['playerStats'][0]['deaths']).toString()+' / '+(game['playerStats'][0]['assists']).toString()+'  '+(Math.round(game['playerStats'][0]['killDeathRatio'] * 100) / 100)+':1 KDA'"><img src="icon.png" width="16" height="16"> <a v-bind:href="'/?summoner='+game['playerStats'][0]['summonerName']">{{ game['playerStats'][0]['summonerName'] }}</a></span> <span class="tiny-text" v-bind:class="{ 'red-team': game['playerStats'][5]['color'] === 'red', 'blue-team': game['playerStats'][5]['color'] === 'blue' }" v-bind:title="(game['playerStats'][5]['summonerName']+': '+game['playerStats'][5]['kills']).toString()+' / '+(game['playerStats'][5]['deaths']).toString()+' / '+(game['playerStats'][5]['assists']).toString()+'  '+(Math.round(game['playerStats'][5]['killDeathRatio'] * 100) / 100)+':1 KDA'"><img src="icon.png" width="16" height="16"> <a v-bind:href="'/?summoner='+game['playerStats'][5]['summonerName']">{{ game['playerStats'][5]['summonerName']  }}</a></span>
+              <br /><span class="tiny-text" v-bind:class="{ 'red-team': game['playerStats'][1]['color'] === 'red', 'blue-team': game['playerStats'][1]['color'] === 'blue' }" v-bind:title="(game['playerStats'][1]['summonerName']+': '+game['playerStats'][1]['kills']).toString()+' / '+(game['playerStats'][1]['deaths']).toString()+' / '+(game['playerStats'][1]['assists']).toString()+'  '+(Math.round(game['playerStats'][1]['killDeathRatio'] * 100) / 100)+':1 KDA'"><img src="icon.png" width="16" height="16"> <a v-bind:href="'/?summoner='+game['playerStats'][1]['summonerName']">{{ game['playerStats'][1]['summonerName'] }}</a></span> <span class="tiny-text" v-bind:class="{ 'red-team': game['playerStats'][6]['color'] === 'red', 'blue-team': game['playerStats'][6]['color'] === 'blue' }" v-bind:title="(game['playerStats'][6]['summonerName']+': '+game['playerStats'][6]['kills']).toString()+' / '+(game['playerStats'][6]['deaths']).toString()+' / '+(game['playerStats'][6]['assists']).toString()+'  '+(Math.round(game['playerStats'][6]['killDeathRatio'] * 100) / 100)+':1 KDA'"><img src="icon.png" width="16" height="16"> <a v-bind:href="'/?summoner='+game['playerStats'][6]['summonerName']">{{ game['playerStats'][6]['summonerName']  }}</a></span>
+              <br /><span class="tiny-text" v-bind:class="{ 'red-team': game['playerStats'][2]['color'] === 'red', 'blue-team': game['playerStats'][2]['color'] === 'blue' }" v-bind:title="(game['playerStats'][2]['summonerName']+': '+game['playerStats'][2]['kills']).toString()+' / '+(game['playerStats'][2]['deaths']).toString()+' / '+(game['playerStats'][2]['assists']).toString()+'  '+(Math.round(game['playerStats'][2]['killDeathRatio'] * 100) / 100)+':1 KDA'"><img src="icon.png" width="16" height="16"> <a v-bind:href="'/?summoner='+game['playerStats'][2]['summonerName']">{{ game['playerStats'][2]['summonerName'] }}</a></span> <span class="tiny-text" v-bind:class="{ 'red-team': game['playerStats'][7]['color'] === 'red', 'blue-team': game['playerStats'][7]['color'] === 'blue' }" v-bind:title="(game['playerStats'][7]['summonerName']+': '+game['playerStats'][7]['kills']).toString()+' / '+(game['playerStats'][7]['deaths']).toString()+' / '+(game['playerStats'][7]['assists']).toString()+'  '+(Math.round(game['playerStats'][7]['killDeathRatio'] * 100) / 100)+':1 KDA'"><img src="icon.png" width="16" height="16"> <a v-bind:href="'/?summoner='+game['playerStats'][7]['summonerName']">{{ game['playerStats'][7]['summonerName']  }}</a></span>
+              <br /><span class="tiny-text" v-bind:class="{ 'red-team': game['playerStats'][3]['color'] === 'red', 'blue-team': game['playerStats'][3]['color'] === 'blue' }" v-bind:title="(game['playerStats'][3]['summonerName']+': '+game['playerStats'][3]['kills']).toString()+' / '+(game['playerStats'][3]['deaths']).toString()+' / '+(game['playerStats'][3]['assists']).toString()+'  '+(Math.round(game['playerStats'][3]['killDeathRatio'] * 100) / 100)+':1 KDA'"><img src="icon.png" width="16" height="16"> <a v-bind:href="'/?summoner='+game['playerStats'][3]['summonerName']">{{ game['playerStats'][3]['summonerName'] }}</a></span> <span class="tiny-text" v-bind:class="{ 'red-team': game['playerStats'][8]['color'] === 'red', 'blue-team': game['playerStats'][8]['color'] === 'blue' }" v-bind:title="(game['playerStats'][8]['summonerName']+': '+game['playerStats'][8]['kills']).toString()+' / '+(game['playerStats'][8]['deaths']).toString()+' / '+(game['playerStats'][8]['assists']).toString()+'  '+(Math.round(game['playerStats'][8]['killDeathRatio'] * 100) / 100)+':1 KDA'"><img src="icon.png" width="16" height="16"> <a v-bind:href="'/?summoner='+game['playerStats'][8]['summonerName']">{{ game['playerStats'][8]['summonerName']  }}</a></span>
+              <br /><span class="tiny-text" v-bind:class="{ 'red-team': game['playerStats'][4]['color'] === 'red', 'blue-team': game['playerStats'][4]['color'] === 'blue' }" v-bind:title="(game['playerStats'][4]['summonerName']+': '+game['playerStats'][4]['kills']).toString()+' / '+(game['playerStats'][4]['deaths']).toString()+' / '+(game['playerStats'][4]['assists']).toString()+'  '+(Math.round(game['playerStats'][4]['killDeathRatio'] * 100) / 100)+':1 KDA'"><img src="icon.png" width="16" height="16"> <a v-bind:href="'/?summoner='+game['playerStats'][4]['summonerName']">{{ game['playerStats'][4]['summonerName'] }}</a></span> <span class="tiny-text" v-bind:class="{ 'red-team': game['playerStats'][9]['color'] === 'red', 'blue-team': game['playerStats'][9]['color'] === 'blue' }" v-bind:title="(game['playerStats'][9]['summonerName']+': '+game['playerStats'][9]['kills']).toString()+' / '+(game['playerStats'][9]['deaths']).toString()+' / '+(game['playerStats'][9]['assists']).toString()+'  '+(Math.round(game['playerStats'][9]['killDeathRatio'] * 100) / 100)+':1 KDA'"><img src="icon.png" width="16" height="16"> <a v-bind:href="'/?summoner='+game['playerStats'][9]['summonerName']">{{ game['playerStats'][9]['summonerName']  }}</a></span>
+            </div>
           </div>
         </div>
       </div>
@@ -50,7 +54,7 @@
     <divmodal name="progress-window">
       <p v-for="msg in progressMessages"> {{ msg }} </p>
     </divmodal>
-    <divmodal name="error-window" class="plain" style="left:-1000">
+    <divmodal name="error-window" class="plain">
       <div>
       <button @click="$modal.hide('error-window')" style="position: absolute; top: 10px; right: 10px;">
         ❌
@@ -185,7 +189,7 @@
           let games = response.data['matches'];
           console.assert(games instanceof Array, 'Expected an array of games but got a '+typeof games);
           let gamesLen = games.length;
-          self.progressMessages.splice(1, 1, self.progressMessages[1]+'found.', 'Looking up '+gamesLen+' individual games...');
+          self.progressMessages.splice(1, 1, self.progressMessages[1]+'found.', 'Looking up '+gamesLen+' games...');
 
           let promises = [];
           let gamesFound = 0;
@@ -196,7 +200,7 @@
             promises.push( Axios.get(location.origin+'/lookupGame?gameId='+gameId)
                            .then(function(response) {
                              gamesFound++;
-                             self.progressMessages.splice(2, 1, 'Looking up '+gamesLen+' individual games - '+gamesFound+' found.');
+                             self.progressMessages.splice(2, 1, 'Looking up '+gamesLen+' games - '+gamesFound+' found.');
                              return response;
                            })
             );
@@ -427,18 +431,10 @@
     font-family: sans-serif;
   }
 
-  .large-text, .large-text input {
-    font-size: 200%;
-  }
-
-  .small-text {
-    font-size: 80%;
-  }
-
   .tiny-text {
     font-size: 66%;
     display: inline-block;
-    width: 80px;
+    width: 10vw;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -451,11 +447,15 @@
     border-width: 2px 0 0 0;
   }
 
+  .half-box {
+    float: left;
+    width: 48vw;
+  }
+
   .quarter-box {
-    float: left; 
-    width: 24%; 
-    min-width: 250px;
-    border-style: solid; 
+    float: left;
+    width: 24vw;
+    border-style: solid;
     border-width: 0px;
     border-width: 1px 0 0 0;
   }
@@ -475,4 +475,28 @@
   .loss-team {
     background-color: #808080;
   }
+
+  @media only screen and (max-width: 1024px) {
+    #app {
+      background-color: #808080;
+      font-size: 240%;
+    }
+
+    input, button {
+      font-size: 80%;
+    }
+
+    .half-box {
+      width: 96vw;
+    }
+
+    .quarter-box {
+      width: 48vw; 
+    }
+
+    .tiny-text {
+      width: 20vw;
+    }
+  }
+
 </style>

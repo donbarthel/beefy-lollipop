@@ -6,8 +6,7 @@ var Axios = require('axios')
 var RateLimiter = require('request-rate-limiter');
 var app = Express();
 
-//const API_KEY = 'NOT DISCLOSED';
-const API_KEY = 'RGAPI-ad389637-7b68-46e6-95c0-99ffac5eed69';
+const API_KEY = 'NOT DISCLOSED';
 
 // Routes
 app.get('/about', aboutHandler);
