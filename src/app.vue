@@ -164,7 +164,7 @@
             if (response.status === 404)
               return Promise.reject('Summoner '+self.summonerName+' doesn\'t exist');
             else
-              return Promise.reject('Server returned '+responseObj.status+' '+responseObj.statusText);
+              return Promise.reject('Server returned '+response.status+' '+response.statusText);
           }
 
           self.progressMessages.splice(0, 1, self.progressMessages[0]+'found.', 'Looking up games list...');
@@ -183,7 +183,7 @@
             if (response.status === 404)
               return Promise.reject('Summoner '+self.summonerName+' hasn\'t played any games');
             else
-              return Promise.reject('Server returned '+responseObj.status+' '+responseObj.statusText);
+              return Promise.reject('Server returned '+response.status+' '+response.statusText);
           }
 
           let games = response.data['matches'];
